@@ -21,28 +21,26 @@ export default {
             startCursor
           }
           totalCount
-          edges {
-            node {
-              id
-              number
-              updatedAt
-              author {
-                url
-              }
-              bodyText
-              bodyHTML
-              title
-              labels(first: 5) {
-                nodes {
-                  id
-                  name
-                  color
-                }
-              }
-              milestone {
+          nodes {
+            id
+            number
+            updatedAt
+            author {
+              url
+            }
+            bodyText
+            bodyHTML
+            title
+            labels(first: 5) {
+              nodes {
                 id
-                title
+                name
+                color
               }
+            }
+            milestone {
+              id
+              title
             }
           }
         }
@@ -57,13 +55,11 @@ export default {
     query { 
       repository(owner:"${username}", name: "${repository}") {
         labels(first:100) {
-          edges {
-            node {
-              id
-              name
-              color
-              description
-            }
+          nodes {
+            id
+            name
+            color
+            description
           }
         }
       }
@@ -76,12 +72,34 @@ export default {
   queryGraphQLCategory: (username: string, repository: string) => `
     query { 
       repository(owner:"${username}", name: "${repository}") {
-        milestones(first:10) {
-          edges {
-            node {
-              id,
-              title,
-              description
+        milestones(first: 10) {
+          nodes {
+            id
+            title
+            description
+            issues(first: 10) {
+              totalCount
+              nodes {
+                number
+                title
+                labels(first: 5) {
+                  nodes {
+                    color
+                    id
+                    name
+                  }
+                }
+                id
+                author {
+                  login
+                  url
+                }
+                milestone {
+                  id
+                  title
+                  number
+                }
+              }
             }
           }
         }
@@ -101,11 +119,9 @@ export default {
           id
           createdAt
           labels(first:5) {
-            edges {
-              node {
-                id
-                name
-              }
+            nodes {
+              id
+              name
             }
           }
           milestone {
@@ -119,15 +135,13 @@ export default {
           body
           bodyHTML
           comments(last:15) {
-            edges {
-              node {
-                id
-                createdAt
-                body
-                bodyHTML
-                databaseId
-                createdAt
-              }
+            node {
+              id
+              createdAt
+              body
+              bodyHTML
+              databaseId
+              createdAt
             }
           }
         }
@@ -162,6 +176,20 @@ export default {
 
 
 
+
+  // {
+  //   search(type: ISSUE,first:10, query: "user:jackeybiao repo:walleve state:open milestone:前端") {
+  //     issueCount
+  //     nodes {
+  //       ... on Issue {
+  //         id
+  //         title
+  //         body
+  //       }
+  //     }
+  //   }
+  // }
+  
 
 
 

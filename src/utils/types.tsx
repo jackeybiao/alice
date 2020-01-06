@@ -4,9 +4,6 @@ export interface QueryPost {
   after?: string,
   before?: string,
   createdBy?:string,
-  filterBy?:{
-    lables: Array<string>,
-  }
 }
 
 export interface PageInfo {
@@ -27,34 +24,46 @@ export interface Author {
 }
 
 export interface Label {
-  node : {
-    id: string
-    name: string
-    color: string
-    description: string
-  }
+  id: string
+  name: string
+  color: string
+  description: string
 }
 
 export interface Milestone {
-  node: {
     id: string
     title: string
     description: string
-  }
+    issues?: {
+      totalCount?: number
+      nodes?: Array<CatePost>
+    }
 }
 
 export interface Post {
-  node: {
     id: string
     number: number
-    updatedAt: string
-    author: Author
-    bodyText: string
-    bodyHTML: string
+    createdAt?: string
+    author?: Author
+    bodyText?: string
+    bodyHTML?: string
     title: string
-    labels: Label
+    labels: Array<Label>
     milestone: Milestone
-  }
+}
+
+export interface CatePost {
+    id: string
+    number: number
+    createdAt?: string
+    author?: Author
+    bodyText?: string
+    bodyHTML?: string
+    title: string
+    labels: {
+      nodes: Array<Label>
+    }
+    milestone: Milestone
 }
 
 export interface Action {

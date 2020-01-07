@@ -1,0 +1,113 @@
+$dark-bg-color: #232323;
+$dark-container-bg-color:#000000;
+$dark-color: #dddddd;
+
+$light-bg-color: #EDEDED;
+$light-color: #232323;
+$light-container-bg-color:#ffffff;
+
+$family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+sans-serif;
+
+
+$scrollbar-image: -webkit-linear-gradient(45deg,hsla(0,0%,100%,1) 25%,transparent 0,transparent 50%,hsla(0,0%,100%,0.8) 0,hsla(0,0%,100%,0.8) 75%,transparent 0,transparent);
+%scrollbar {
+  &::-webkit-scrollbar, &::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgb(100, 100, 100);
+    background-image: $scrollbar-image;
+  }
+}
+
+@mixin dark-light($dark-bg-color,$dark-color,$light-bg-color,$light-color) {
+  @media (prefers-color-scheme: dark) {
+    background: $dark-bg-color;
+    color: $dark-color;
+  }
+  @media (prefers-color-scheme: light) {
+    background: $light-bg-color;
+    color: $light-color;
+  }
+}
+
+@mixin dark-light-bg-color($dark-bg-color,$light-bg-color) {
+  @media (prefers-color-scheme: dark) {
+    background: $dark-bg-color;
+  }
+  @media (prefers-color-scheme: light) {
+    background: $light-bg-color;
+  }
+}
+
+@mixin dark-light-color($dark-color,$light-color) {
+  @media (prefers-color-scheme: dark) {
+    color: $dark-color;
+  }
+  @media (prefers-color-scheme: light) {
+    color: $light-color;
+  }
+}
+
+
+$columns1: 1fr;
+$columns2: 1fr 1fr;
+$columns3: 1fr 1fr 1fr;
+$columns4: repeat(12,1fr);
+@mixin grid-box($gap,$padding,$columns){
+  grid-column-gap: $gap;
+  padding: $padding;
+  grid-template-columns: $columns;
+}
+@mixin media-screen {
+  @media screen and ( min-width: 375px ) {
+    @include grid-box(0,0, $columns1);
+  }
+  @media screen and ( min-width: 768px ) {
+    @include grid-box(6px,6px, $columns2);
+  }
+  @media screen and ( min-width: 1024px ) {
+    @include grid-box(8px,8px, $columns2);
+  }
+  @media screen and ( min-width: 1280px ) {
+    @include grid-box(16px,16px, $columns2);
+  }
+}
+
+@mixin media-column {
+  @media screen and ( min-width: 375px ) {
+    grid-column: 1 / 13;
+  }
+  @media screen and ( min-width: 1024px ) {
+    grid-column: 2 / 12;
+  }
+}
+
+@mixin media-container-column {
+  @media screen and ( min-width: 375px ) {
+    @include grid-box(16px,16px, $columns4);
+    grid-column: 1 / 13;
+  }
+  @media screen and ( min-width: 765px ) {
+    @include grid-box(16px,16px, $columns4);
+    grid-column: 2 / 12;
+  }
+  @media screen and ( min-width: 1024px ) {
+    @include grid-box(16px,16px, $columns4);
+    grid-column: 3 / 11;
+  }
+  @media screen and ( min-width: 1248px ) {
+    @include grid-box(16px,16px, $columns4);
+    grid-column: 3 / 11;
+  }
+}
+
+
+

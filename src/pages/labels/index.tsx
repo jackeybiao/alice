@@ -4,11 +4,11 @@ import { Label,CatePost } from '../../utils/types';
 
 import { queryLabels } from '../../utils/service';
 
-import "./index.css";
-
 import Loading from '../../components/loading';
+import PostItem from '../category/components/postItem';
 
-import { PostItem } from "../category/index";
+import "./index.scss";
+
 
 interface labelsProps {}
 
@@ -45,7 +45,7 @@ const Labels = (props: labelsProps) => {
   }
 
   return (
-    <div className="dark linght detail-container">
+    <div className="container">
       {loading?(<Loading />):""}
       <div className="tag">
         {labels.map(item=>(
@@ -54,11 +54,11 @@ const Labels = (props: labelsProps) => {
       </div>
 
       {isSelect?(
-        <div className="grid-box sub-container">
+        <>
         {labelPosts.map((item) =>(
           <PostItem key={item.id} item={item} />
         ))}
-      </div>
+        </>
       ):""}
 
     </div>

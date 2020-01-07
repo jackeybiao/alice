@@ -30,13 +30,11 @@ const Homes = () => {
   },[])
 
   return (
-    <div className="dark linght container">
-      <div className="row">
-        {loading?(<Loading />):""}
-        {posts.map(item=>(
-          <ShowCase key={item.id} info={item} />
-        ))}
-      </div>
+    <div className="grid-container">
+      {loading?(<Loading />):""}
+      {posts.map(item=>(
+        <ShowCase key={item.id} info={item} />
+      ))}
     </div>
   )
 }

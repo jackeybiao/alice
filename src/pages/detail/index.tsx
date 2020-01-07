@@ -8,8 +8,9 @@ import { Post } from '../../utils/types';
 
 import { queryPostItem } from '../../utils/service';
 
-import './index.css';
 import Loading from '../../components/loading';
+
+import './index.scss';
 
 interface DetailProps {
   dispatch: Function,
@@ -44,9 +45,9 @@ const Detail = (props: DetailProps) => {
   },[id])
 
   return (
-    <div className="dark linght detail-container">
+    <div className="container">
       {loading?(<Loading />):""}
-      <div id="detail"></div>
+      <article id="detail"></article>
     </div>
   ) 
 }

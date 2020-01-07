@@ -5,7 +5,7 @@ import testImg from "../../assets/images/1.jpg";
 
 import { Post } from '../../utils/types';
 
-import './index.css';
+import './index.scss';
 
 interface ShowCase {
   info: Post
@@ -25,21 +25,19 @@ function getReadTime(len: number) {
 const ShowCase = (props:any) => {
   const { info } = props
   return (
-    <div className="col-md-6 col-sm-12">
-      <div className="show-case-bg">
-        <div className="show-case">
-          <Link to={`/post/${info.number}`}>
-            <img src={testImg} alt="" />
-            <h3>{info.title}</h3>
-            <p>发布于 {info.updatedAt} • {getReadTime(info.bodyText.length)}分钟</p>
-            <div className="list-tags">
-              {info.labels.nodes.map((item:Label)=>(
-                <span key={item.id} > {item.name} </span>
-              ))}
-              <span> {info.milestone.title} </span>
-            </div>
-          </Link>
-        </div>
+    <div className="show-case-bg">
+      <div className="show-case">
+        <Link to={`/post/${info.number}`}>
+          <img src={testImg} alt="" />
+          <h3>{info.title}</h3>
+          <p>发布于 {info.updatedAt} • {getReadTime(info.bodyText.length)}分钟</p>
+          <div className="list-tags">
+            {info.labels.nodes.map((item:Label)=>(
+              <span key={item.id} > {item.name} </span>
+            ))}
+            <span> {info.milestone.title} </span>
+          </div>
+        </Link>
       </div>
     </div>
   )

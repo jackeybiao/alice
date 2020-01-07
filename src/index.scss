@@ -1,0 +1,44 @@
+@import './theme.scss';
+
+*, :after, :before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+}
+
+body {
+  @extend %scrollbar;
+  @include dark-light($dark-bg-color,$dark-color,$light-bg-color,$light-color);
+  display: grid;
+  margin: 0;
+  font-family: $family;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+main {
+  margin-top: 65px;
+  display: grid;
+  grid-template-columns:repeat(12,1fr);
+  z-index: 1;
+}
+
+.grid-container {
+  display: grid;
+  @include media-column;
+  @include dark-light($dark-container-bg-color,$dark-color,$light-container-bg-color,$light-color);
+  @include media-screen;
+}
+
+.container {
+  display: grid;
+  @include media-container-column;
+  @include dark-light($dark-container-bg-color,$dark-color,$light-container-bg-color,$light-color);
+}

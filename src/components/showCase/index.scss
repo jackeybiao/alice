@@ -1,0 +1,37 @@
+@import "../../theme.scss";
+.show-case-bg {
+  padding: 1rem;
+  border-radius: 3px;
+  margin: {
+    bottom: 15px;
+  }
+  @include dark-light-bg-color($dark-bg-color,$light-bg-color);
+  .show-case {
+    border-radius: 3px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px 1px rgba(0,0,0,.1);
+    height: 100%;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    @include dark-light-bg-color($dark-container-bg-color,$light-container-bg-color);
+    .list-tags{
+      span {
+        border: none;
+        @include dark-light-bg-color($dark-bg-color,$light-bg-color);
+        border-radius: 4px;
+        padding: 5px 10px;
+        white-space: nowrap;
+        margin-right: 8px;
+      }
+    }
+    a {
+      text-decoration: none;
+      @include dark-light-color($dark-color,$light-color);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 3px;
+    }
+  }
+}

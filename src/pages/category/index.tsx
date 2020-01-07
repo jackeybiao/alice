@@ -1,21 +1,15 @@
 import React, {useState,useEffect} from 'react';
 
-import { Link } from "react-router-dom";
 import { Milestone, CatePost } from '../../utils/types';
 
 import { queryCategory } from '../../utils/service';
 
-import cat1 from '../../assets/images/cat/cat1.jpg';
-import cat2 from '../../assets/images/cat/cat2.jpg';
-import cat3 from '../../assets/images/cat/cat3.jpg';
-import cat4 from '../../assets/images/cat/cat4.jpg';
-import cat5 from '../../assets/images/cat/cat5.jpg';
-import cat6 from '../../assets/images/cat/cat6.jpg';
 
-import './index.css';
 import Loading from '../../components/loading';
+import CateItem from './components/cateItem';
+import PostItem from './components/postItem';
 
-const cats = [cat1,cat2,cat3,cat4,cat5,cat6];
+import './index.scss';
 
 interface CategoryProps {}
 
@@ -41,9 +35,9 @@ const Category = (props: CategoryProps) => {
     }
   },[])
 
-  const handleClick = (item:Milestone) => {
-    if(item && item.issues && item.issues.nodes && item.issues.nodes.length > 0) {
-      setMilestonePosts(item.issues.nodes);
+  const handleClick = (nodes:Array<CatePost>) => {
+    if(nodes.length > 0) {
+      setMilestonePosts(nodes);
       setIsSelect(true)
     }else{
       setIsSelect(false)
@@ -51,62 +45,22 @@ const Category = (props: CategoryProps) => {
   }
 
   return (
-    <div className="dark linght detail-container">
+    <div className="container">
       {loading?(<Loading />):(
         <>
-          <div className="category">
             {category.map((item,index)=>(
-              <div onClick={()=>{handleClick(item)}} className="content" key={item.id}>
-                <img className="bg" src={cats[index]} alt={item.title} />
-                <div className="mate">
-                  <div className="info">
-                    <img className="avatar" src={cats[index]} alt={item.title} />
-                    <span>{item.title} （ {item.issues?.totalCount} ）</span>
-                  </div>
-                  <p>{item.description}</p>
-                </div>
-              </div>
+              <CateItem key={item.id} index={index} item={item} getnodes={(nodes:Array<CatePost>)=>{handleClick(nodes)}} />
             ))}
-          </div>
-
-          {isSelect?(
-            <div className="grid-box sub-container">
-            {milestonePosts.map((item) =>(
-              <PostItem key={item.id} item={item} />
-            ))}
-          </div>
-          ):""}
-          
+            {isSelect?(
+              <>
+                {milestonePosts.map((item) =>(
+                  <PostItem key={item.id} item={item} />
+                ))}
+              </>
+            ):""}
         </>
       )}
-      
-    </div>
-  ) 
-}
-
-
-interface PostItem {
-  item: CatePost
-}
-
-export function PostItem(props:PostItem) {
-  const { item } = props
-  return (
-    <div className="post-item">
-      <Link to={`/post/${item.number}`}>
-        <h3 className="title">{item.title}</h3>
-        <div className="meta">
-          <span>{item.createdAt}</span>
-          {item.labels.nodes.map(label=>(
-            <span key={label.id}>
-              {label.name}
-            </span>
-          ))}
-          <span>{item.milestone.title}</span>
-        </div>
-      </Link>
     </div>
   )
 }
-
 export default Category;

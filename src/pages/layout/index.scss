@@ -1,0 +1,54 @@
+@import "../../theme.scss";
+$shadow:1px 2px 20px 0px;
+@mixin dark-light-shadow($dark-color,$light-color) {
+  @media (prefers-color-scheme: dark) {
+    box-shadow: $shadow $dark-color;
+  }
+  @media (prefers-color-scheme: light) {
+    box-shadow: $shadow $light-color;
+  }
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  @include dark-light-bg-color($dark-container-bg-color,$light-container-bg-color);
+  @include dark-light-shadow(rgba(0, 0, 0, 0.9),rgba(171, 171, 171, 0.753));
+  height: 60px;
+  z-index: 10;
+  nav {
+    display: grid;
+    @media screen and ( min-width: 375px ) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and ( min-width: 450px ) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @media screen and ( min-width: 1024px ) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @media screen and ( min-width: 375px ) {
+        grid-column: 1 / span 3;
+      }
+      @media screen and ( min-width: 1024px ) {
+        grid-column: 9 / span 3;
+      }
+      li {
+        list-style: none;
+        line-height: 60px;
+        cursor: pointer;
+        a {
+          text-decoration: none;
+          padding: 0 20px;
+          display: block;
+          @include dark-light-color($dark-color,$light-color);
+        }
+      }
+    }
+  }
+}

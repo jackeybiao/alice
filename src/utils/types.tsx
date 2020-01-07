@@ -28,6 +28,10 @@ export interface Label {
   name: string
   color: string
   description: string
+  issues?: {
+    totalCount?: number
+    nodes?: Array<CatePost>
+  }
 }
 
 export interface Milestone {

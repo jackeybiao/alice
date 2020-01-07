@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 import { 
     HashRouter as Router,
@@ -13,6 +13,12 @@ import Category from './pages/category';
 import './App.css';
 
 const App = (props: any) => {
+
+  useEffect(()=>{
+    const oi = "color:#FFF;line-height:22px;background:#D68FE9;padding:0 15px;margin-right:15px";
+    const ois = "color:#000;line-height:22px;";
+    console.log("%c寒露%cwww.jackeybiao.com", oi,ois);
+  },[])
   return (
       <Router>
         <header>

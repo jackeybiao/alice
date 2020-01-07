@@ -54,12 +54,37 @@ export default {
   queryGraphQLLable: (username: string, repository: string) => `
     query { 
       repository(owner:"${username}", name: "${repository}") {
-        labels(first:100) {
+        labels(first:50) {
           nodes {
             id
             name
             color
             description
+            issues(first: 50) {
+              totalCount
+              nodes {
+                number
+                title
+                createdAt
+                labels(first: 5) {
+                  nodes {
+                    color
+                    id
+                    name
+                  }
+                }
+                id
+                author {
+                  login
+                  url
+                }
+                milestone {
+                  id
+                  title
+                  number
+                }
+              }
+            }
           }
         }
       }
@@ -77,11 +102,12 @@ export default {
             id
             title
             description
-            issues(first: 10) {
+            issues(first: 100) {
               totalCount
               nodes {
                 number
                 title
+                createdAt
                 labels(first: 5) {
                   nodes {
                     color
@@ -135,7 +161,7 @@ export default {
           body
           bodyHTML
           comments(last:15) {
-            node {
+            nodes {
               id
               createdAt
               body
@@ -172,28 +198,7 @@ export default {
         }
       }
     }
-  `,
-
-
-
-
-  // {
-  //   search(type: ISSUE,first:10, query: "user:jackeybiao repo:walleve state:open milestone:前端") {
-  //     issueCount
-  //     nodes {
-  //       ... on Issue {
-  //         id
-  //         title
-  //         body
-  //       }
-  //     }
-  //   }
-  // }
-  
-
-
-
-
+  `
 
 
 }

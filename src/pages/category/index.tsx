@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 
+import { Link } from "react-router-dom";
 import { Milestone, CatePost } from '../../utils/types';
 
 import { queryCategory } from '../../utils/service';
@@ -11,7 +12,6 @@ import cat4 from '../../assets/images/cat/cat4.jpg';
 import cat5 from '../../assets/images/cat/cat5.jpg';
 import cat6 from '../../assets/images/cat/cat6.jpg';
 
-
 import './index.css';
 import Loading from '../../components/loading';
 
@@ -22,6 +22,8 @@ interface CategoryProps {}
 const Category = (props: CategoryProps) => {
 
   const [milestonePosts,setMilestonePosts] = useState([] as Array<CatePost>);
+
+  const [isSelect,setIsSelect] = useState(false);
 
   const [loading,setLoading] = useState(false);
 
@@ -42,8 +44,10 @@ const Category = (props: CategoryProps) => {
   const handleClick = (item:Milestone) => {
     if(item && item.issues && item.issues.nodes && item.issues.nodes.length > 0) {
       setMilestonePosts(item.issues.nodes);
-    }
-    
+      setIsSelect(true)
+    }else{
+      setIsSelect(false)
+    } 
   }
 
   return (
@@ -65,31 +69,44 @@ const Category = (props: CategoryProps) => {
             ))}
           </div>
 
-
-          {milestonePosts.map(item =>(
-            <div key={item.id}>
-              <div>{item.title}</div>
-              <div>
-                {item.labels.nodes.map(label=>(
-                  <span key={label.id}>
-                    {label.name}
-                  </span>
-                ))}
-              </div>
-              <div>
-                  <span>
-                    {item.milestone.title}
-                  </span>
-              </div>
-            </div>
-          ))}
-
+          {isSelect?(
+            <div className="sub-container">
+            {milestonePosts.map((item) =>(
+              <PostItem key={item.id} item={item} />
+            ))}
+          </div>
+          ):""}
           
         </>
       )}
       
     </div>
   ) 
+}
+
+
+interface PostItem {
+  item: CatePost
+}
+
+export function PostItem(props:PostItem) {
+  const { item } = props
+  return (
+    <div className="post-item col-md-6">
+      <Link to={`/post/${item.number}`}>
+        <h3 className="title">{item.title}</h3>
+        <div className="meta">
+          <span>{item.createdAt}</span>
+          {item.labels.nodes.map(label=>(
+            <span key={label.id}>
+              {label.name}
+            </span>
+          ))}
+          <span>{item.milestone.title}</span>
+        </div>
+      </Link>
+    </div>
+  )
 }
 
 export default Category;

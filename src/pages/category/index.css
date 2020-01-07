@@ -2,12 +2,31 @@
 
 .category{
   display: grid;
-  grid-column-gap: 16px;
-  padding: 16px;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
-.category .content{
+@media screen and ( min-width: 378px ) {
+  .category{
+    grid-column-gap: 6px;
+    padding: 6px;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and ( min-width: 768px ) {
+  .category{
+    grid-column-gap: 10px;
+    padding: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and ( min-width: 1024px ) {
+  .category{
+    grid-column-gap: 16px;
+    padding: 16px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.category .content {
   position: relative;
   margin-bottom: 16px;
   height: 160px;
@@ -89,7 +108,6 @@
 }
 
 
-
 @media (prefers-color-scheme: light) {
   .category .content .mate {
     background-color: hsla(0, 0%, 86%, 0.65);
@@ -108,4 +126,85 @@
     background-color: rgba(26, 25, 25, 0.8);
     color: #fff;
   }
+}
+
+
+
+.sub-container {
+  box-shadow: 1px 3px 40px rgba(100,100,100,0.4);
+  border-radius: 5px;
+  padding: 15px;
+  animation:easeOut 0.7s linear 1;
+}
+
+.sub-container .post-item {
+  width: 100%;
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-radius: 3px;
+  background-color: hsla(0,0%,100%,.65);
+  -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+  box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
+  -webkit-transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+  transition: all .3s ease 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+  transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+  transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
+}
+.sub-container .post-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
+}
+
+.sub-container .post-item a{
+  color:rgb(85, 85, 85);
+  text-decoration: none;
+}
+
+.sub-container .post-item .title {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.sub-container .post-item .meta {
+  display: flex;
+  padding: 6px 0px;
+  height: 40px;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+
+.sub-container .post-item .meta span{
+  align-items: center;
+  margin-right: 12px;
+  background: rgba(0,0,0,0.085);
+  padding: 0 5px;
+  line-height: 1.65;
+  border-radius: 3px;
+}
+.sub-container .post-item .meta span:last-child{
+  margin-right: 0;
+}
+
+
+
+
+@keyframes easeOut {
+  0% {
+    opacity:0;
+    transform:translateY(100px);
+  }
+	35% {
+    opacity:0.35;
+    transform:translateY(65px);
+	}
+	65% {
+    opacity:0.65;
+    transform:translateY(35px);
+	}
+	100% {
+    transform:translateY(0px);
+		opacity:1;
+	}
 }

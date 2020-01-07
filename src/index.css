@@ -27,8 +27,8 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
   border-radius: 3px;
-  background-color: rgba(23, 184, 90, 0.753);
-  background-image: -webkit-linear-gradient(45deg,hsla(0,0%,100%,.4) 25%,transparent 0,transparent 50%,hsla(0,0%,100%,.4) 0,hsla(0,0%,100%,.4) 75%,transparent 0,transparent)
+  background-color: rgb(100, 100, 100);
+  background-image: -webkit-linear-gradient(45deg,hsla(0,0%,100%,1) 25%,transparent 0,transparent 50%,hsla(0,0%,100%,0.8) 0,hsla(0,0%,100%,0.8) 75%,transparent 0,transparent)
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,6 +37,7 @@ body::-webkit-scrollbar-thumb {
   .dark { background: #121212; color:  #ddd; }
   .container{background: #232323;}
   .detail-container{background: #232323;}
+  header{background: #000;color: #fff;}
 }
 
 @media (prefers-color-scheme: light) {
@@ -45,6 +46,7 @@ body::-webkit-scrollbar-thumb {
   .dark { background:  #EDEDED; color: #121212; }
   .container{background: #ffffff;}
   .detail-container{background: #ffffff;}
+  header{background: #fff;color: #000;}
 }
 
 .light, .dark {
@@ -131,10 +133,10 @@ body::-webkit-scrollbar-thumb {
 pre {
   padding: 12px 14px;
   max-height: 600px;
-  box-shadow: inset 2px 2px 5px 0px rgba(148, 187, 148, 0.753), inset -2px -2px 5px 0px rgba(134, 167, 134, 0.753);
+  box-shadow: inset 1px 1px 3px 0px rgba(171, 171, 171, 0.753), inset -1px -1px 3px 0px rgba(171, 171, 171, 0.753);
   overflow: auto;
   border-radius: 5px;
-  background: #efe;
+  background: #fdfdfd9c;
   color: #000;
   line-height: 1.5;
   font-size: 1.125rem;
@@ -151,8 +153,8 @@ pre::-webkit-scrollbar {
 
 pre::-webkit-scrollbar-thumb {
   border-radius: 3px;
-  background-color: rgba(23, 184, 90, 0.753);
-  background-image: -webkit-linear-gradient(45deg,hsla(0,0%,100%,.4) 25%,transparent 0,transparent 50%,hsla(0,0%,100%,.4) 0,hsla(0,0%,100%,.4) 75%,transparent 0,transparent)
+  background-color: rgb(100, 100, 100);
+  background-image: -webkit-linear-gradient(45deg,hsla(0,0%,100%,1) 25%,transparent 0,transparent 50%,hsla(0,0%,100%,0.8) 0,hsla(0,0%,100%,0.8) 75%,transparent 0,transparent)
 }
      
 code {
@@ -174,6 +176,14 @@ code {
 }
 
 ::selection {
-  background: rgba(7, 134, 7, 0.596);
+  background: rgba(0, 0, 0, 0.9);
   color: #fff;
+}
+
+
+blockquote {
+  margin: 0;
+    box-shadow: 0px 0px 2px 0px rgba(171, 171, 171, 0.753), 0px 0px 2px 0px rgba(171, 171, 171, 0.753);
+    border-radius: 5px;
+    padding: 15px;
 }

@@ -1,6 +1,5 @@
 header {
   height: 60px;
-  background: #fff;
 }
 
 header nav ul {
@@ -34,5 +33,16 @@ header nav ul li a{
 @media screen and ( min-width: 1024px ) {
   header nav ul{
     justify-content: flex-end;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  header nav ul li a{
+    color: #fff;
+  }
+}
+@media (prefers-color-scheme: light) {
+  header nav ul li a{
+    color: #000;
   }
 }

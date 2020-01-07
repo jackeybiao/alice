@@ -54,7 +54,7 @@ const Labels = (props: labelsProps) => {
       </div>
 
       {isSelect?(
-        <div className="sub-container">
+        <div className="grid-box sub-container">
         {labelPosts.map((item) =>(
           <PostItem key={item.id} item={item} />
         ))}

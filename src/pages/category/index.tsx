@@ -70,7 +70,7 @@ const Category = (props: CategoryProps) => {
           </div>
 
           {isSelect?(
-            <div className="sub-container">
+            <div className="grid-box sub-container">
             {milestonePosts.map((item) =>(
               <PostItem key={item.id} item={item} />
             ))}
@@ -92,7 +92,7 @@ interface PostItem {
 export function PostItem(props:PostItem) {
   const { item } = props
   return (
-    <div className="post-item col-md-6">
+    <div className="post-item">
       <Link to={`/post/${item.number}`}>
         <h3 className="title">{item.title}</h3>
         <div className="meta">

@@ -1,11 +1,11 @@
 
 
-.category{
+.category,.grid-box{
   display: grid;
 }
 
 @media screen and ( min-width: 378px ) {
-  .category{
+  .category,.grid-box{
     grid-column-gap: 6px;
     padding: 6px;
     grid-template-columns: 1fr;
@@ -13,7 +13,7 @@
 }
 
 @media screen and ( min-width: 768px ) {
-  .category{
+  .category,.grid-box{
     grid-column-gap: 10px;
     padding: 10px;
     grid-template-columns: 1fr 1fr;
@@ -142,6 +142,7 @@
   border-top-width: 2px;
   border-top-style: solid;
   border-radius: 3px;
+  margin-bottom: 15px;
   background-color: hsla(0,0%,100%,.65);
   -webkit-box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
   box-shadow: 0 14px 38px rgba(0,0,0,.08), 0 3px 8px rgba(0,0,0,.06);
@@ -170,8 +171,9 @@
 
 .sub-container .post-item .meta {
   display: flex;
-  padding: 6px 0px;
+  padding: 6px 10px;
   height: 40px;
+  font-size: 0.9rem;
   border-top: 1px solid rgba(0,0,0,.08);
 }
 

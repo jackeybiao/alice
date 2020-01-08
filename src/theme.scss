@@ -105,7 +105,7 @@ $columns4: repeat(12,1fr);
   }
   @media screen and ( min-width: 1248px ) {
     @include grid-box(16px,16px, $columns4);
-    grid-column: 3 / 11;
+    grid-column: 4 / 10;
   }
 }
 

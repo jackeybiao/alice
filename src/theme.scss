@@ -56,6 +56,14 @@ $scrollbar-image: -webkit-linear-gradient(45deg,hsla(0,0%,100%,1) 25%,transparen
   }
 }
 
+@mixin radial-gradient {
+  background-image: radial-gradient(circle at top left,rgba(172, 51, 51, 0.9),rgba(164, 185, 40, 0.5))
+}
+
+
+
+
+
 
 $columns1: 1fr;
 $columns2: 1fr 1fr;
@@ -109,5 +117,15 @@ $columns4: repeat(12,1fr);
   }
 }
 
+
+
+@mixin polka($size,$dot,$base,$accent) {
+  background: $base;
+  background-image:
+    radial-gradient($accent, $dot, transparent 0),
+    radial-gradient($accent, $dot, transparent 0);
+  background-size: $size $size;
+  background-position: 0,0, $size / 2 $size / 2;
+}
 
 

@@ -17,7 +17,7 @@
     cursor: pointer;
     a {
       text-decoration: none;
-      color: #333333;
+      @include dark-light-color(#fff,#fff);
     }
     @include dark-light-bg-color($dark-container-bg-color,$light-container-bg-color);
     .case-shadow {
@@ -39,7 +39,7 @@
       .list-tags{
         span {
           border: none;
-          @include dark-light-bg-color($dark-bg-color,$light-bg-color);
+          @include radial-gradient;
           border-radius: 4px;
           padding: 5px 10px;
           white-space: nowrap;

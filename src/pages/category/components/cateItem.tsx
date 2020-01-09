@@ -2,7 +2,9 @@ import React from 'react';
 import { Milestone } from '../../../utils/types';
 
 import "./index.scss";
+
 import { randomColor } from '../../../utils';
+
 
 interface ShowItemProps {
   item: Milestone,
@@ -12,7 +14,7 @@ interface ShowItemProps {
 
 const CateItem = (props: ShowItemProps) => {
 
-  const { item, index, getnodes } = props;
+  const { item, getnodes } = props;
 
   const handleClick = (item:Milestone) => {
     if(item && item.issues && item.issues.nodes && item.issues.nodes.length > 0) {
@@ -27,7 +29,7 @@ const CateItem = (props: ShowItemProps) => {
   }
 
   return (
-    <div onClick={()=>{handleClick(item)}} className="cate-item" key={item.id}>
+    <div onClick={()=>{handleClick(item)}} className="cate-item">
       <div className="bg" style={style}></div>
       <div className="mate">
         <div className="info">

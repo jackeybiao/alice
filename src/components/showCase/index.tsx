@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Post } from '../../utils/types';
 
-import { randomColor } from '../../utils/index';
+import { randomColor, format } from '../../utils/index';
 
 import './index.scss';
 
@@ -38,7 +38,7 @@ const ShowCase = (props:any) => {
           <div className="case-shadow" style={style}></div>
           <div className="case-content">
               <h3>{info.title}</h3>
-              <p>发布于 {info.updatedAt} • {getReadTime(info.bodyText.length)}分钟</p>
+              <p>发布于 {format(info.updatedAt)} • {getReadTime(info.bodyText.length)}分钟</p>
               <div className="list-tags">
                 {info.labels.nodes.map((item:Label)=>(
                   <span key={item.id} > {item.name} </span>

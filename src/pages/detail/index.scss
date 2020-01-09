@@ -6,6 +6,12 @@ article img {
 }
 
 article {
+    .article-title {
+        .mate {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
     grid-column: span 12;
     blockquote {
         margin: 0;

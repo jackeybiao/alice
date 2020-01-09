@@ -6,10 +6,32 @@ article img {
 }
 
 article {
+    h3 {
+        display: inline-block;
+        padding: 5px 30px 20px;
+        border-radius: 15px;
+        background-image: 
+            linear-gradient(45deg, transparent 15px, #8dc7b5 0),linear-gradient(-45deg, transparent 15px, #8dc7b5 0);
+        background-size: 15px;
+        color: #333;
+    }
+    h4 {
+        padding: 10px 30px;
+        border-radius: 15px;
+        background-image: 
+            linear-gradient(-45deg, transparent 10px, #8dc7b5 0),
+            linear-gradient(45deg, transparent 10px, #8dc7b5 0),
+            linear-gradient(-225deg, transparent 10px, #8dc7b5 0),
+            linear-gradient(225deg, transparent 10px, #8dc7b5 0);
+        background-size: 15px;
+        background-repeat: no-repeat;
+        color: #333;
+    }
     .article-title {
         .mate {
             display: flex;
             justify-content: space-between;
+            font-size: 0.85rem;
         }
     }
     grid-column: span 12;
@@ -26,10 +48,11 @@ article {
         box-shadow: inset 1px 1px 3px 0px rgba(171, 171, 171, 0.753), inset -1px -1px 3px 0px rgba(171, 171, 171, 0.753);
         overflow: auto;
         border-radius: 5px;
-        background: #fdfdfd9c;
         color: #000;
         line-height: 1.5;
         font-size: 1.125rem;
+        background: #fdfdfd63; 
+        transition: 1s;
     }
     code {
         width: 100%;

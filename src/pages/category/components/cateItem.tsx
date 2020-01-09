@@ -5,7 +5,6 @@ import "./index.scss";
 
 import { randomColor } from '../../../utils';
 
-
 interface ShowItemProps {
   item: Milestone,
   index: number,
@@ -16,7 +15,7 @@ const CateItem = (props: ShowItemProps) => {
 
   const { item, getnodes } = props;
 
-  const handleClick = (item:Milestone) => {
+  const handleClick = (item: Milestone) => {
     if(item && item.issues && item.issues.nodes && item.issues.nodes.length > 0) {
       getnodes(item.issues.nodes);
     }else {
@@ -33,10 +32,8 @@ const CateItem = (props: ShowItemProps) => {
       <div className="bg" style={style}></div>
       <div className="mate">
         <div className="info">
-          <div className="avatar"></div>
-          <span>{item.title} （ {item.issues?.totalCount} ）</span>
+          <span>{item.title} &#40; {item.issues?.totalCount} &#41;</span> <span>{item.description}</span>
         </div>
-        <p>{item.description}</p>
       </div>
     </div>
   )

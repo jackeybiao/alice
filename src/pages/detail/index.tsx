@@ -45,7 +45,7 @@ const Detail = (props: DetailProps) => {
           <div className="article-title">
             <h3>{article.title}</h3>
             <div className="mate">
-              <span>{format(article.createdAt)}</span>
+              <span>发布于: {format(article.createdAt)}</span>
               <span>当前: {formatWeek()}</span>
             </div>
             <hr/>

@@ -5,6 +5,7 @@ import { Label,CatePost } from '../../utils/types';
 import { queryLabels } from '../../utils/service';
 
 import Loading from '../../components/loading';
+
 import PostItem from '../category/components/postItem';
 
 import "./index.scss";
@@ -28,6 +29,7 @@ const Labels = (props: labelsProps) => {
       setLabels(res.repository.labels.nodes)
       setLoading(false);
     })
+    
     return () => {
       subscription.unsubscribe()
       setLoading(false);

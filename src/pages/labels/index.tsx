@@ -19,6 +19,8 @@ const Labels = (props: labelsProps) => {
 
   const [isSelect,setIsSelect] = useState(false);
 
+  const [selectLabel,setSelectLabel] = useState({} as Label);
+
   const [labelPosts,setLabelPosts] = useState([] as Array<CatePost>);
 
   const [labels, setLabels] = useState([] as Array<Label>);
@@ -40,6 +42,7 @@ const Labels = (props: labelsProps) => {
   const handleClick = (item:Label) => {
     if(item && item.issues && item.issues.nodes && item.issues.nodes.length > 0) {
       setLabelPosts(item.issues.nodes);
+      setSelectLabel(item);
       setIsSelect(true)
     }else{
       setIsSelect(false)
@@ -48,21 +51,26 @@ const Labels = (props: labelsProps) => {
 
   return (
     <div className="container">
-      {loading?(<Loading />):""}
-      <div className="tag">
-        {labels.map(item=>(
-          <span onClick={()=>{handleClick(item)}} key={item.id} className="tag-item" style={{color:`#${item.color}`}} title={item.description}>{item.name}</span>
-        ))}
-      </div>
-
-      {isSelect?(
+      {loading?(<Loading />):(
         <>
-        {labelPosts.map((item) =>(
-          <PostItem key={item.id} item={item} />
-        ))}
+          {isSelect?(
+            <>
+            <div className="cate-title">标签：<span onClick={()=>{setIsSelect(false)}}>{selectLabel.name}</span></div>
+            {labelPosts.map((item) =>(
+              <PostItem key={item.id} item={item} />
+            ))}
+            </>
+          ):(
+            <>
+              <div className="tag">
+                {labels.map(item=>(
+                  <span onClick={()=>{handleClick(item)}} key={item.id} className="tag-item" style={{color:`#${item.color}`}} title={item.description}>{item.name}</span>
+                ))}
+              </div>
+            </>
+          )}
         </>
-      ):""}
-
+      )}
     </div>
   ) 
 }

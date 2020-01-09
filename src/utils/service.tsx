@@ -6,7 +6,7 @@ import config from '../config';
 
 import graphql from './graphql';
 
-import { QueryPost, MutationComment } from './types';
+import { MutationComment } from './types';
 
 const { username, repository, GRAPHQL_URL, token } = config;
 
@@ -51,7 +51,7 @@ const graphQLMutationFetch = async (document: string) => {
   );
 }
 
-export const queryPosts = (params: QueryPost) => graphQLFetch(graphql.queryGraphQLPosts(username, repository, params));
+export const queryPosts = (params: string) => graphQLFetch(graphql.queryGraphQLPosts(username, repository, params));
 
 export const queryLabels = () => graphQLFetch(graphql.queryGraphQLLable(username, repository));
 

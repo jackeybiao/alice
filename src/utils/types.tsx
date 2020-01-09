@@ -1,9 +1,10 @@
 export interface QueryPost {
-  states: string,
-  first: Number,
-  after?: string,
-  before?: string,
-  createdBy?:string,
+  states: string
+  first: Number
+  after?: string
+  before?: string
+  createdBy?:string
+  text?:PageInfo
 }
 
 export interface PageInfo {
@@ -14,7 +15,7 @@ export interface PageInfo {
 }
 
 export interface MutationComment {
-  subjectId: string,
+  subjectId: string
   body: string
 }
 

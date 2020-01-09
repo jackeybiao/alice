@@ -29,7 +29,11 @@
   transition: all .3s ease 0s,transform .6s cubic-bezier(.6,.2,.1,1) 0s,-webkit-transform .6s cubic-bezier(.6,.2,.1,1) 0s;
   overflow: hidden;
   cursor: pointer;
+  animation: easeIn .6s linear;
   @include media-item;
+  &::after {
+    content: "\A";
+  }
   &:hover {
     transform: translateY(-4px);
     box-shadow: 0 14px 38px rgba(0,0,0,.14), 0 3px 8px rgba(0,0,0,.12);
@@ -128,6 +132,25 @@
 	}
 	100% {
     transform:translateY(0px);
+		opacity:1;
+	}
+}
+
+@keyframes easeIn {
+  0% {
+    opacity:0;
+    transform:translateX(100px) ;
+  }
+	35% {
+    opacity:0.35;
+    transform:translateX(65px);
+	}
+	65% {
+    opacity:0.65;
+    transform:translateX(35px);
+	}
+	100% {
+    transform:translateX(0px);
 		opacity:1;
 	}
 }

@@ -48,16 +48,20 @@ const Category = (props: CategoryProps) => {
     <div className="container">
       {loading?(<Loading />):(
         <>
-            {category.map((item,index)=>(
-              <CateItem key={item.id} index={index} item={item} getnodes={(nodes:Array<CatePost>)=>{handleClick(nodes)}} />
-            ))}
             {isSelect?(
               <>
+                <div className="cate-title">分类：<span onClick={()=>{setIsSelect(false)}}>{milestonePosts[0].milestone.title}</span></div>
                 {milestonePosts.map((item) =>(
                   <PostItem key={item.id} item={item} />
                 ))}
               </>
-            ):""}
+            ):(
+              <>
+                {category.map((item,index)=>(
+                  <CateItem key={item.id} index={index} item={item} getnodes={(nodes:Array<CatePost>)=>{handleClick(nodes)}} />
+                ))}
+              </>
+            )}
         </>
       )}
     </div>

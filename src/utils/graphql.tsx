@@ -1,19 +1,15 @@
-import { QueryPost } from "./types";
-
-
-function stringify(params: QueryPost) {
-  let result = JSON.stringify(params).replace(/[{}"]/g, "");
-  return result;
-};
 
 export default {
   /**
    * 获取文章列表
    */
-  queryGraphQLPosts : (username: string, repository: string, params: QueryPost) => `
+  queryGraphQLPosts : (username: string, repository: string, params: string) => `
     query {
       repository(owner:"${username}", name: "${repository}") {
-        issues(${stringify(params)}) {
+        issues(${params}) {
+          edges {
+            cursor
+          }
           pageInfo {
             hasNextPage
             endCursor

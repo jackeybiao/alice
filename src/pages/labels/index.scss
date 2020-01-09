@@ -4,6 +4,7 @@
   width: 100%;
   grid-column: span 12;
   margin-bottom: 25px;
+  animation: easeIns .6s linear;
   .tag-item {
     padding: 4px 10px 6px;
     border-radius: 3px;
@@ -17,4 +18,27 @@
       @include dark-light-bg-color(rgba(100,100,100,.2),rgba(100,100,100,.5));
     }
   }
+}
+
+@keyframes easeIns {
+  0% {
+    opacity:0;
+    transform:translateX(100px);
+  }
+	25% {
+    opacity:0.65;
+    transform:translateX(50px);
+	}
+	55% {
+    opacity:0.8;
+    transform:translateX(0px);
+  }
+  75% {
+    opacity:0.8;
+    transform:translateX(10px);
+	}
+	100% {
+    transform:translateX(0px);
+		opacity:1;
+	}
 }

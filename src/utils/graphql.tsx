@@ -20,7 +20,7 @@ export default {
           nodes {
             id
             number
-            updatedAt
+            createdAt
             author {
               url
             }

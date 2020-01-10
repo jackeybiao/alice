@@ -14,6 +14,10 @@ const Homes = () => {
 
   useEffect(()=>{
     const params = `
+      orderBy: {
+        field: CREATED_AT
+        direction: DESC
+      }
       states: OPEN
       first:10
     `
@@ -31,6 +35,10 @@ const Homes = () => {
 
   const handlePrePage = (before: string) => {
     const params = `
+      orderBy: {
+        field: CREATED_AT
+        direction: DESC
+      }
       states: OPEN
       last:10
       before:"${before}"
@@ -45,6 +53,10 @@ const Homes = () => {
   }
   const handleNextPage = (after: string) => {
     const params = `
+      orderBy: {
+        field: CREATED_AT
+        direction: DESC
+      }
       states: OPEN
       first:10
       after:"${after}"

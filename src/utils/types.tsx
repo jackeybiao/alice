@@ -62,8 +62,8 @@ export interface CatePost {
     number: number
     createdAt?: string
     author?: Author
-    bodyText?: string
-    bodyHTML?: string
+    bodyText: string
+    bodyHTML: string
     title: string
     labels: {
       nodes: Array<Label>

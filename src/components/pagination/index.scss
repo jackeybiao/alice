@@ -1,0 +1,41 @@
+.pageInfo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: span 2;
+    .page-pre {
+      position: relative;
+      padding: 5px 15px;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10;
+      margin-right: 15px;
+      &::after {
+        content: "";
+        position: absolute;
+        border-radius: 5px;
+        background-image: linear-gradient(to bottom right,rgba(221, 37, 221, 0.555) 30%, rgba(14, 87, 136, 0.329));
+        top: 0;left:0;right:0;bottom: 0;
+        transform: skewX(-30deg);
+        z-index: -1;
+      }
+    }
+    .page-next {
+      position: relative;
+      padding: 5px 15px;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      z-index: 10;
+      &::after {
+        content: "";
+        position: absolute;
+        border-radius: 5px;
+        background-image: linear-gradient(to bottom right,rgba(221, 37, 221, 0.555) 30%, rgba(14, 87, 136, 0.329));
+        top: 0;left:0;right:0;bottom: 0;
+        transform: skewX(-210deg);
+        z-index: -1;
+      }
+    }
+  }

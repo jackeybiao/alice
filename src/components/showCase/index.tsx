@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Post } from '../../utils/types';
+import { CatePost } from '../../utils/types';
 
 import { randomColor, format } from '../../utils/index';
 
 import './index.scss';
 
 interface ShowCase {
-  info: Post
+  info: CatePost
 }
 
 interface Label {

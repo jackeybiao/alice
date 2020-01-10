@@ -1,23 +1,31 @@
 import React, {useState,useEffect} from 'react';
+
 import ShowCase from '../components/showCase/index';
 
-import { queryPosts } from '../utils/service';
+import Pagination from '../components/pagination/index';
 
+import { queryPosts } from '../utils/service';
 
 import config from '../config';
 
 import { Post, PageInfo } from '../utils/types';
+
 import Loading from '../components/loading';
 
-
-const setPage = (action="",cursor:string) => {
+const setPagination = (action="",cursor:string) => {
   let result = "";
   switch (action) {
     case "before":
-      result = `last:${config.pageSize} ${action}:"${cursor}"`;
+      result = `
+          last:${config.pageSize}
+          ${action}:"${cursor}"
+        `;
       break;
     case "after":
-      result = `first:${config.pageSize} ${action}:"${cursor}"`;
+      result = `
+        first:${config.pageSize}
+        ${action}:"${cursor}"
+      `;
       break;
     default:
       result = `first:${config.pageSize}`;
@@ -44,7 +52,7 @@ const Homes = () => {
         direction: DESC
       }
       states: OPEN
-      ${setPage(action,cursor)}
+      ${setPagination(action,cursor)}
     `
     setLoading(true);
     const subscription = queryPosts(params).subscribe(res => {
@@ -58,12 +66,9 @@ const Homes = () => {
     }
   },[action, cursor])
 
-  const handlePrePage = (cursor: string) => {
-    setAction("before");
-    setCursor(cursor);
-  }
-  const handleNextPage = (cursor: string) => {
-    setAction("after");
+
+  const getPaginationAction = (action:string,cursor:string) => {
+    setAction(action);
     setCursor(cursor);
   }
 
@@ -71,18 +76,10 @@ const Homes = () => {
     <div className="grid-container">
       {loading?(<Loading />):(
         <>
-          {posts.map(item=>(
+          {posts.map(item => (
             <ShowCase key={item.id} info={item} />
           ))}
-
-          {(pageInfo.hasPreviousPage || pageInfo.hasNextPage)?(
-            <>
-              <div className="pageInfo">
-                {pageInfo.hasPreviousPage?(<div className="page-pre" onClick={()=>{handlePrePage(pageInfo.startCursor)}}>上一页</div>):""}
-                {pageInfo.hasNextPage?(<div className="page-next" onClick={()=>{handleNextPage(pageInfo.endCursor)}}>下一页</div>):""}
-              </div>
-            </>
-          ):""}
+          <Pagination pageInfo={pageInfo} getPaginationAction={(action:string, cursor:string)=>{getPaginationAction(action,cursor)}} />
         </>
       )}
       

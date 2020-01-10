@@ -32,6 +32,8 @@ main {
 
 .grid-container {
   display: grid;
+  min-height: calc(70vh - 65px);
+  grid-template-rows: minmax(3rem, max-content) repeat(auto-fill, 200px);
   @include media-column;
   @include dark-light($dark-container-bg-color,$dark-color,$light-container-bg-color,$light-color);
   @include media-screen;
@@ -39,6 +41,8 @@ main {
 
 .container {
   display: grid;
+  min-height: calc(70vh - 65px);
+  grid-template-rows: minmax(3rem, max-content) repeat(auto-fill, 90px);
   @include media-container-column;
   @include dark-light($dark-container-bg-color,$dark-color,$light-container-bg-color,$light-color);
 }

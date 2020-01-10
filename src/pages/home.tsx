@@ -82,7 +82,6 @@ const Homes = () => {
           <Pagination pageInfo={pageInfo} getPaginationAction={(action:string, cursor:string)=>{getPaginationAction(action,cursor)}} />
         </>
       )}
-      
     </div>
   )
 }

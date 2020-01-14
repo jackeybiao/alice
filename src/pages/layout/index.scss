@@ -43,10 +43,19 @@ header {
         line-height: 60px;
         cursor: pointer;
         a {
+          background-color: rgba(214, 211, 211, 0.342);
+          border-radius: 5px;
+          text-align: center;
           text-decoration: none;
-          padding: 0 20px;
-          display: block;
+          padding: 10px 20px;
+          transition: 460ms;
           @include dark-light-color($dark-color,$light-color);
+          &.active {
+            background-color: rgba(167, 137, 137, 0.342);
+          }
+          &:hover {
+            background-color: rgba(167, 137, 137, 0.342);
+          }
         }
       }
     }

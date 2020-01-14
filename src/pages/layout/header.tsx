@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import "./index.scss";
 
@@ -9,13 +9,13 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">首页</Link>
+            <NavLink to="/index">首页</NavLink>
           </li>
           <li>
-            <Link to="/category">分类</Link>
+            <NavLink to="/category">分类</NavLink>
           </li>
           <li>
-            <Link to="/labels">标签</Link>
+            <NavLink to="/labels">标签</NavLink>
           </li>
         </ul>
       </nav>

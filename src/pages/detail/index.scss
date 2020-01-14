@@ -6,6 +6,8 @@ article img {
 }
 
 article {
+    grid-row: span 12;
+    grid-column: span 12;
     h3 {
         display: inline-block;
         padding: 5px 30px 20px;
@@ -38,7 +40,6 @@ article {
             font-size: 0.85rem;
         }
     }
-    grid-column: span 12;
     blockquote {
         margin: 0;
         box-shadow: 0px 0px 2px 0px rgba(171, 171, 171, 0.753), 0px 0px 2px 0px rgba(171, 171, 171, 0.753);

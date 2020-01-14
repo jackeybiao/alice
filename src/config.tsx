@@ -15,6 +15,6 @@ export default {
 
   token:["909a710abc251013cb84b","1a8255fe8198a9cff69"],
 
-  pageSize: 2,
+  pageSize: 10,
 
 }

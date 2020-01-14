@@ -2,7 +2,7 @@ import React,{useEffect} from 'react';
 
 import { 
     HashRouter as Router,
-    Route, Switch,
+    Route, Switch,Redirect
   } from 'react-router-dom';
 
 import Home from './pages/home';
@@ -24,7 +24,8 @@ const App = () => {
         <Header />
         <main>
           <Switch>
-              <Route exact path="/" component={Home} />
+              <Redirect exact from="/" to="/index" /> 
+              <Route path="/index" component={Home} />
               <Route path="/post/:id" component={Detail} />
               <Route path="/labels" component={Labels} />
               <Route path="/category" component={Category} />

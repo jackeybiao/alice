@@ -17,6 +17,9 @@ const Header = () => {
           <li>
             <NavLink to="/labels">标签</NavLink>
           </li>
+          <li>
+            <NavLink to="/rhyme">Rhyme</NavLink>
+          </li>
         </ul>
       </nav>
     </header>

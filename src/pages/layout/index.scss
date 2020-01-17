@@ -31,9 +31,9 @@ header {
       padding: 0;
       margin: 0;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       @media screen and ( min-width: 375px ) {
-        grid-column: 1 / span 3;
+        grid-column: 1 / span 2;
       }
       @media screen and ( min-width: 1024px ) {
         grid-column: 9 / span 3;

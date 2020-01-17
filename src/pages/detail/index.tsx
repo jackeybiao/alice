@@ -11,12 +11,7 @@ import Loading from '../../components/loading';
 
 import './index.scss';
 
-interface DetailProps {
-  dispatch: Function,
-  posts:Array<Post>
-}
-
-const Detail = (props: DetailProps) => {
+const Detail = () => {
 
   const { id } = useParams();
 

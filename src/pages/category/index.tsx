@@ -11,13 +11,12 @@ import PostItem from './components/postItem';
 
 import './index.scss';
 
-interface CategoryProps {}
 
-const Category = (props: CategoryProps) => {
+const Category = () => {
 
   const [milestonePosts,setMilestonePosts] = useState([] as Array<CatePost>);
 
-  const [isSelect,setIsSelect] = useState(false);
+  const [isSelected,setIsSelected] = useState(false);
 
   const [loading,setLoading] = useState(false);
 
@@ -31,16 +30,15 @@ const Category = (props: CategoryProps) => {
     })
     return () => {
       subscription.unsubscribe()
-      setLoading(false)
     }
   },[])
 
   const handleClick = (nodes:Array<CatePost>) => {
     if(nodes.length > 0) {
       setMilestonePosts(nodes);
-      setIsSelect(true)
+      setIsSelected(true)
     }else{
-      setIsSelect(false)
+      setIsSelected(false)
     } 
   }
 
@@ -48,9 +46,9 @@ const Category = (props: CategoryProps) => {
     <div className="container">
       {loading?(<Loading />):(
         <>
-            {isSelect?(
+            {isSelected?(
               <>
-                <div className="cate-title">分类：<span onClick={()=>{setIsSelect(false)}}>{milestonePosts[0].milestone.title}</span></div>
+                <div className="cate-title">分类：<span onClick={()=>{setIsSelected(false)}}>{milestonePosts[0].milestone.title}</span></div>
                 {milestonePosts.map((item) =>(
                   <PostItem key={item.id} item={item} />
                 ))}

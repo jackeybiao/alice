@@ -61,10 +61,6 @@ $scrollbar-image: -webkit-linear-gradient(45deg,hsla(0,0%,100%,1) 25%,transparen
 }
 
 
-
-
-
-
 $columns1: 1fr;
 $columns2: 1fr 1fr;
 $columns3: 1fr 1fr 1fr;
@@ -127,5 +123,3 @@ $columns4: repeat(12,1fr);
   background-size: $size $size;
   background-position: 0,0, $size / 2 $size / 2;
 }
-
-

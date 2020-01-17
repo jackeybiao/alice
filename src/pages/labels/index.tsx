@@ -10,20 +10,17 @@ import PostItem from '../category/components/postItem';
 
 import "./index.scss";
 
-
-interface labelsProps {}
-
-const Labels = (props: labelsProps) => {
+const Labels = () => {
 
   const [loading,setLoading] = useState(false);
 
-  const [isSelect,setIsSelect] = useState(false);
+  const [isSelected,setIsSelected] = useState(false);
 
-  const [selectLabel,setSelectLabel] = useState({} as Label);
+  const [selectLabel,setSelectLabel] = useState<Label>({} as Label);
 
-  const [labelPosts,setLabelPosts] = useState([] as Array<CatePost>);
+  const [labelPosts,setLabelPosts] = useState<Array<CatePost>>([]);
 
-  const [labels, setLabels] = useState([] as Array<Label>);
+  const [labels, setLabels] = useState<Array<Label>>([]);
 
   useEffect(()=>{
     setLoading(true);
@@ -34,7 +31,6 @@ const Labels = (props: labelsProps) => {
     
     return () => {
       subscription.unsubscribe()
-      setLoading(false);
     }
   },[])
 
@@ -43,9 +39,9 @@ const Labels = (props: labelsProps) => {
     if(item && item.issues && item.issues.nodes && item.issues.nodes.length > 0) {
       setLabelPosts(item.issues.nodes);
       setSelectLabel(item);
-      setIsSelect(true)
+      setIsSelected(true)
     }else{
-      setIsSelect(false)
+      setIsSelected(false)
     }
   }
 
@@ -53,9 +49,9 @@ const Labels = (props: labelsProps) => {
     <div className="container">
       {loading?(<Loading />):(
         <>
-          {isSelect?(
+          {isSelected?(
             <>
-            <div className="cate-title">标签：<span onClick={()=>{setIsSelect(false)}}>{selectLabel.name}</span></div>
+            <div className="cate-title">标签：<span onClick={()=>{setIsSelected(false)}}>{selectLabel.name}</span></div>
             {labelPosts.map((item) =>(
               <PostItem key={item.id} item={item} />
             ))}

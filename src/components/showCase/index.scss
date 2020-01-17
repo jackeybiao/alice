@@ -5,6 +5,7 @@
   margin: {
     bottom: 15px;
   }
+  animation: easeOut .6s linear;
   @include dark-light-bg-color($dark-bg-color,$light-bg-color);
   .show-case {
     position: relative;

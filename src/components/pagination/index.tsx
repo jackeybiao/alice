@@ -1,9 +1,25 @@
 import React from "react";
 
+import config from '../../config';
 import { PageInfo } from '../../utils/types';
 
 import "./index.scss";
 
+
+export type PageAction = "before" | "after" |'';
+
+const pageAction = {
+  before:'last',
+  after:'first'
+}
+
+export const setPagination = (action:PageAction, cursor:string) => action !== ""?
+  `
+  ${pageAction[action]}:${config.pageSize}
+  ${action}:"${cursor}"
+  `:`first:${config.pageSize}`;
+
+  
 interface PaginationProps {
     pageInfo: PageInfo
     getPaginationAction: Function

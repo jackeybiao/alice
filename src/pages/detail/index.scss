@@ -6,6 +6,7 @@ article img {
 }
 
 article {
+    animation: easeOut .6s linear;
     grid-row: span 12;
     grid-column: span 12;
     h3 {
@@ -77,13 +78,6 @@ article {
         hyphens: none;
     }
 }
-
-
-
-
-
-
-
 
 
 

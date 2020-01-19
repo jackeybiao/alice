@@ -1,0 +1,44 @@
+@mixin media-showCase {
+    @media screen and ( min-width: 375px ) {
+        width: 100%;
+    }
+    @media screen and ( min-width: 765px ) {
+        width: 50%;
+    }
+    @media screen and ( min-width: 1024px ) {
+        width: 50%;
+    }
+    @media screen and ( min-width: 1248px ) {
+        width: 33%;
+    }
+}
+
+ul.friends {
+    margin: 0;
+    padding: 0;
+    grid-column: span 12;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: easeIn .6s linear;
+    li.friend-showCase {
+        @include media-showCase;
+        list-style-type: none;
+        box-shadow: 1px 2px 3px #333;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        transition: 460ms;
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: 1px 2px 30px #333;
+            text-shadow: 1px 2px 3px #000;
+        }
+        a {
+            display: block;
+            padding: 10px 15px;
+            color: #fff;
+            text-decoration: none;
+            
+        }
+    }
+}

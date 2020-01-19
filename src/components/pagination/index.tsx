@@ -35,14 +35,14 @@ const Pagination = (props: PaginationProps) => {
 
     return (
         <>
-        {(pageInfo.hasPreviousPage || pageInfo.hasNextPage)?(
-            <>
-              <div className="pageInfo">
-                {pageInfo.hasPreviousPage?(<div className="page-pre" onClick={()=>{handleActionPage("before", pageInfo.startCursor)}}>上一页</div>):""}
-                {pageInfo.hasNextPage?(<div className="page-next" onClick={()=>{handleActionPage("after", pageInfo.endCursor)}}>下一页</div>):""}
-              </div>
-            </>
-        ):""}
+          {(pageInfo.hasPreviousPage || pageInfo.hasNextPage)?(
+              <>
+                <div className="pageInfo">
+                  {pageInfo.hasPreviousPage?(<div className="page-pre" onClick={()=>{handleActionPage("before", pageInfo.startCursor)}}>上一页</div>):""}
+                  {pageInfo.hasNextPage?(<div className="page-next" onClick={()=>{handleActionPage("after", pageInfo.endCursor)}}>下一页</div>):""}
+                </div>
+              </>
+          ):""}
         </>
     )
 }

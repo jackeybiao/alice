@@ -11,11 +11,11 @@ import { Post, PageInfo } from '../utils/types';
 import Loading from '../components/loading';
 
 const Homes = () => {
-  const [loading,setLoading] = useState(false)
+
+  const [loading,setLoading] = useState(false);
 
   const [posts, setPosts] = useState([] as Array<Post>);
   const [pageInfo,setPageInfo] = useState({} as PageInfo);
-
 
   const [action,setAction] = useState<PageAction>("");
   const [cursor,setCursor] = useState("");

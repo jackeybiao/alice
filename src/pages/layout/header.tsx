@@ -18,7 +18,7 @@ const Header = () => {
             <NavLink to="/labels">标签</NavLink>
           </li>
           <li>
-            <NavLink to="/rhyme">Rhyme</NavLink>
+            <NavLink to="/friends">邻居</NavLink>
           </li>
         </ul>
       </nav>

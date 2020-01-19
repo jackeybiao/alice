@@ -4,13 +4,11 @@ import { Milestone, CatePost } from '../../utils/types';
 
 import { queryCategory } from '../../utils/service';
 
-
 import Loading from '../../components/loading';
 import CateItem from './components/cateItem';
 import PostItem from './components/postItem';
 
 import './index.scss';
-
 
 const Category = () => {
 
@@ -39,7 +37,7 @@ const Category = () => {
       setIsSelected(true)
     }else{
       setIsSelected(false)
-    } 
+    }
   }
 
   return (

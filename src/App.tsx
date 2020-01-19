@@ -9,9 +9,11 @@ import Home from './pages/home';
 import Detail from './pages/detail/index';
 import Labels from './pages/labels';
 import Category from './pages/category';
+import Friend from './pages/friends';
 import Rhyme from './pages/rhyme';
 
 import Header from './pages/layout/header';
+
 
 const App = () => {
   useEffect(()=> {
@@ -30,6 +32,7 @@ const App = () => {
               <Route path="/post/:id" component={Detail} />
               <Route path="/labels" component={Labels} />
               <Route path="/category" component={Category} />
+              <Route path="/friends" component={Friend} />
               <Route path="/rhyme" component={Rhyme} />
           </Switch>
         </main>

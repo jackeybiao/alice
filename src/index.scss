@@ -9,7 +9,7 @@ html {
 }
 
 ::selection {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(100, 100, 100, 0.705);
   color: #fff;
 }
 
@@ -32,7 +32,6 @@ main {
 
 .grid-container {
   display: grid;
-  min-height: calc(70vh - 65px);
   grid-template-rows: minmax(3rem, max-content) repeat(auto-fill, 200px);
   @include media-column;
   @include dark-light($dark-container-bg-color,$dark-color,$light-container-bg-color,$light-color);
@@ -41,7 +40,6 @@ main {
 
 .container {
   display: grid;
-  min-height: calc(70vh - 65px);
   grid-template-rows:minmax(3rem, max-content) repeat(auto-fill, 80px);
   grid-gap: 10px;
   @include media-container-column;

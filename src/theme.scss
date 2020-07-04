@@ -72,7 +72,7 @@ $columns4: repeat(12,1fr);
 }
 @mixin media-screen {
   @media screen and ( min-width: 375px ) {
-    @include grid-box(0,0, $columns1);
+    @include grid-box(0,0, 0);
   }
   @media screen and ( min-width: 768px ) {
     @include grid-box(6px,6px, $columns2);

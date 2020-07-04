@@ -31,17 +31,12 @@ main {
 }
 
 .grid-container {
-  display: grid;
-  grid-template-rows: minmax(3rem, max-content) repeat(auto-fill, 200px);
   @include media-column;
   @include dark-light($dark-container-bg-color,$dark-color,$light-container-bg-color,$light-color);
   @include media-screen;
 }
 
 .container {
-  display: grid;
-  grid-template-rows:minmax(3rem, max-content) repeat(auto-fill, 80px);
-  grid-gap: 10px;
   @include media-container-column;
   @include dark-light($dark-container-bg-color,$dark-color,$light-container-bg-color,$light-color);
 }
